@@ -1,0 +1,220 @@
+<!-- awaiting 1) locations, 2) logos, 3) credits -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>59/23 Specialist Cadet Graduation Parade</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      color: black;
+      font-size: 18px;
+      position: relative;
+      min-height: 100vh;
+
+      background-image: url("./images/background-transparent.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+      font-size: 2em;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    select,
+    button {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 15px 30px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1.2em;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #saveText {
+      display: none;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.2em;
+      /* color: white; */
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    select {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      padding: 15px;
+      font-size: 1.2em;
+      border: 2px solid #007bff;
+      border-radius: 5px;
+      background-color: #fff;
+      appearance: none;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #0056b3;
+    }
+
+    /* #footer {
+      position: fixed;
+      text-align: center;
+      padding: 10px 0;
+      bottom: 0;
+      width: 100%;
+      font-size: 20px;
+      background-color: #fff;
+    } */
+
+    #swiLogo {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: 30vh;
+      width: auto;
+    }
+
+    #schoolLogo {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: 20vh;
+      width: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./images/SWI.png" alt="SWI Logo" id="swiLogo">
+  <h1>Welcome to 59/23 Specialist Cadet Graduation Parade</h1>
+  <div id="inputCarpark">
+    <p id="submitText">Which carpark are you currently at?</p>
+    <select id="schoolSelect">
+      <option value="" disabled selected>Please select</option>
+      <option value="A">Carpark A</option>
+      <option value="B">Carpark B</option>
+      <option value="C">Carpark C</option>
+      <option value="D">Carpark D</option>
+      <option value="E">Carpark E</option>
+      <option value="F">Carpark F</option>
+      <option value="G">Carpark G</option>
+      <option value="H">Carpark H</option>
+      <option value="I">Carpark I</option>
+      <option value="J">Carpark J</option>
+      <option value="K">Carpark K</option>
+      <option value="L">Carpark L</option>
+      <option value="M">Carpark M</option>
+      <option value="N">Carpark N</option>
+    </select>  
+    <button onclick="storeValue()">Submit</button>
+  </div>
+
+  <p id="saveText">Your data has been saved.</p>
+  <!-- <button onclick="retrieveValue()" id="retrieveBtn" class="toHide">Carpark Location</button> -->
+  <div id="findCarpark">
+    <div id="displayValue"></div>
+    <button id="reset" onclick="reset()">Reset</button>
+  </div>
+  <hr>
+
+  <div id="footer">
+    <img src="./images/school.png" alt="School III Logo" id="schoolLogo">
+    <p>Created by PTE Yuhang, SCS III Mohicans Company.</p>
+  </div>
+
+  <script>
+    carparkLocations = {
+      "N": "https://maps.app.goo.gl/iKfdvLgP3hjXRZst9",
+      "A": "https://maps.app.goo.gl/53WnZzXvPTSVVqYV7",
+      "B": "https://maps.app.goo.gl/tKBMbK5Ts729tNTe9",
+      "D": "https://maps.app.goo.gl/3CTwAY3LS9s8keKm9",
+      "C": "https://maps.app.goo.gl/5B8SnyYsgafgNALq5",
+      "E": "https://maps.app.goo.gl/gv5ofmMGL34fvaQi8",
+      "F": "https://maps.app.goo.gl/6Wf6tFiVZgBkCuws7",
+      "M": "https://maps.app.goo.gl/hR1j2HNkM6bVwJQ79",
+      "L": "https://maps.app.goo.gl/q6id7kKqMuwvdnYFA",
+      "K": "https://maps.app.goo.gl/GPC16ZNpeu4gvig86",
+      "J": "https://maps.app.goo.gl/tYWvWk4GiGznM7HQ7",
+      "I": "https://maps.app.goo.gl/rPAi19gpM3eGnpGs7",
+      "H": "https://maps.app.goo.gl/ZkRwnXUmtLqVThDT6",
+      "G": "https://maps.app.goo.gl/UhDYiN62gth8AyZG9",
+    }
+    window.onload = function() {
+      var storedSchool = localStorage.getItem('storedSchool');
+      if (storedSchool) {
+        document.getElementById('schoolSelect').value = storedSchool;
+        document.querySelector('#inputCarpark').style.display = "none";
+      } else {
+        document.querySelector('#findCarpark').style.display = "none";
+      }
+      retrieveValue();
+    };
+    function storeValue() {
+      var selectedSchool = document.getElementById('schoolSelect').value;
+      if (selectedSchool === '') {
+        alert('Please select a school!');
+        return;
+      }
+      localStorage.setItem('storedSchool', selectedSchool);
+      alert('School stored successfully!');
+      document.querySelector('#saveText').style.display = "block";
+      document.querySelector('#inputCarpark').style.display = "none";
+      document.querySelector("#findCarpark").style.display = "block";
+      retrieveValue();
+    }
+
+    function retrieveValue() {
+      var storedSchool = localStorage.getItem('storedSchool');
+      if (storedSchool && carparkLocations.hasOwnProperty(storedSchool)) {
+        var carpark_link = carparkLocations[storedSchool];
+        document.getElementById('displayValue').innerHTML = `<p>Carpark ${storedSchool}: <a href=${carpark_link}>Visit Google Maps</a></p>`;
+        document.getElementById('displayValue').style.display = 'block';
+      } else {
+        document.getElementById('displayValue').innerHTML = '<p>No school stored yet.</p>';
+      }
+    }
+    function reset() {
+      localStorage.removeItem('storedSchool');
+      location.reload();
+    }
+  </script>
+</body>
+
+</html>
