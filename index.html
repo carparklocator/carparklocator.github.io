@@ -176,17 +176,23 @@
       "H": "https://maps.app.goo.gl/ZkRwnXUmtLqVThDT6",
       "G": "https://maps.app.goo.gl/UhDYiN62gth8AyZG9",
     }
-    window.onload = function() {
-      exports.handler = async function (event, context) {
-        const value = process.env.BATCH;
-        console.log(value);
-      
-        return {
+    import { json } from 'micro';
+    export async function handler(event, context) {
+      // Accessing environment variable named BATCH
+      const batchValue = process.env.BATCH;
+  
+      // You can now use batchValue in your code
+      console.log(`Value of BATCH environment variable is: ${batchValue}`);
+  
+      // Return the value of BATCH environment variable
+      return {
           statusCode: 200,
-          body: JSON.stringify({ message: `Value of MY_IMPORTANT_VARIABLE is ${value}.` }),
-        };  
+          body: JSON.stringify({ message: `Value of BATCH environment variable is ${batchValue}.` }),
       };
-
+    }
+    window.onload = function() {
+      
+      handler();
       var storedSchool = localStorage.getItem('storedSchool');
       if (storedSchool) {
         document.getElementById('schoolSelect').value = storedSchool;
