@@ -177,6 +177,16 @@
       "G": "https://maps.app.goo.gl/UhDYiN62gth8AyZG9",
     }
     window.onload = function() {
+      console.log(process.env.BATCH);
+      // exports.handler = async function (event, context) {
+      //   const value = process.env.BATCH;
+      
+      //   return {
+      //     statusCode: 200,
+      //     body: JSON.stringify({ message: `Value of MY_IMPORTANT_VARIABLE is ${value}.` }),
+      //   };  
+      // };
+
       var storedSchool = localStorage.getItem('storedSchool');
       if (storedSchool) {
         document.getElementById('schoolSelect').value = storedSchool;
