@@ -210,7 +210,7 @@
       var storedSchool = localStorage.getItem('storedSchool');
       if (storedSchool && carparkLocations.hasOwnProperty(storedSchool)) {
         var carpark_link = carparkLocations[storedSchool];
-        document.getElementById('displayValue').innerHTML = `<p>Carpark ${storedSchool}: <a href=${carpark_link}>Visit Google Maps</a></p>`;
+        document.getElementById('displayValue').innerHTML = `<p>Carpark ${storedSchool}: <a href=${carpark_link}>View Carpark Location</a></p>`;
         document.getElementById('displayValue').style.display = 'block';
       } else {
         document.getElementById('displayValue').innerHTML = '<p>No school stored yet.</p>';
