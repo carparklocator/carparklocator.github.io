@@ -181,6 +181,7 @@
       "O": "https://maps.app.goo.gl/q6id7kKqMuwvdnYFA",
       "P": "https://maps.app.goo.gl/8g2VYWhPnHhKdXC96?g_st=ic",
       "V": "https://maps.app.goo.gl/3k13Jx4FNwK9u5uJ9?g_st=ic",
+      "Leaders Square": "https://maps.app.goo.gl/JcYZfAiLgFHmRjYn6"
     }
     window.onload = function() {
       var storedSchool = localStorage.getItem('storedSchool');
@@ -210,7 +211,8 @@
       var storedSchool = localStorage.getItem('storedSchool');
       if (storedSchool && carparkLocations.hasOwnProperty(storedSchool)) {
         var carpark_link = carparkLocations[storedSchool];
-        document.getElementById('displayValue').innerHTML = `<p>Carpark ${storedSchool}: <a href=${carpark_link}>View Carpark Location</a></p>`;
+        var leadersSquare = carparkLocations["Leaders Square"];
+        document.getElementById('displayValue').innerHTML = `<p>Carpark ${storedSchool}: <a href=${carpark_link}>View Carpark Location</a></p><p><a href=${leadersSquare}>Leaders Square Location</a></p>`;
         document.getElementById('displayValue').style.display = 'block';
       } else {
         document.getElementById('displayValue').innerHTML = '<p>No school stored yet.</p>';
