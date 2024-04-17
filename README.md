@@ -1,3 +1,3 @@
 # carparklocator
-Website to help users locate their cars.\n
+Website to help users locate their cars. <br />
 Built with HTML, CSS & JavaScript.
