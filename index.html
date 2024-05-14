@@ -212,7 +212,7 @@
       if (storedSchool && carparkLocations.hasOwnProperty(storedSchool)) {
         var carpark_link = carparkLocations[storedSchool];
         var leadersSquare = carparkLocations["Leaders Square"];
-        document.getElementById('displayValue').innerHTML = `<p>Carpark ${storedSchool}: <a href=${carpark_link}>View Carpark Location</a></p><p><a href=${leadersSquare}>Specialist Cadet Graduation Parade Square Location</a></p>`;
+        document.getElementById('displayValue').innerHTML = `<p>Carpark ${storedSchool}: <a href=${carpark_link}>View Carpark Location</a></p><p><a href=${leadersSquare}>Specialist Cadet Course Graduation Parade Square Location</a></p>`;
         document.getElementById('displayValue').style.display = 'block';
       } else {
         document.getElementById('displayValue').innerHTML = '<p>No school stored yet.</p>';
