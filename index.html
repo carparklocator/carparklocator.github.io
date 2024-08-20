@@ -133,17 +133,17 @@
       <option value="C">Carpark B2</option>
       <option value="D">Carpark C</option>
       <option value="E">Carpark D</option>
-      <option value="F">Carpark E</option>
-      <option value="G">Carpark F</option>
-      <option value="H">Carpark G</option>
+      <option value="F">Carpark DG</option>
+      <option value="G">Carpark E</option>
+      <option value="H">Carpark F</option>
       <option value="I">Carpark H</option>
       <option value="J">Carpark I</option>
       <option value="K">Carpark J</option>
       <option value="L">Carpark K</option>
       <option value="M">Carpark L</option>
       <option value="N">Carpark M</option>
-      <option value="O">Carpark N</option>
-      <option value="P">Carpark DG</option>
+      <option value="DG">Carpark N</option>
+      <option value="P">Carpark P</option>
       <option value="V">Carpark V</option>
     </select>  
     <button onclick="storeValue()">Submit</button>
@@ -160,24 +160,24 @@
 
   <script>
     carparkLocations = {
-      "A": "https://maps.app.goo.gl/hR1j2HNkM6bVwJQ79",
-      "B": "https://maps.app.goo.gl/iKfdvLgP3hjXRZst9",
-      "C": "https://maps.app.goo.gl/53WnZzXvPTSVVqYV7",
-      "D": "https://maps.app.goo.gl/7isWaMsfq75ryqBE8",
-      "E": "https://maps.app.goo.gl/tKBMbK5Ts729tNTe9",
-      "F": "https://maps.app.goo.gl/5B8SnyYsgafgNALq5",
-      "G": "https://maps.app.goo.gl/3CTwAY3LS9s8keKm9",
-      "H": "https://maps.app.goo.gl/gv5ofmMGL34fvaQi8",
-      "I": "https://maps.app.goo.gl/6Wf6tFiVZgBkCuws7",
-      "J": "https://maps.app.goo.gl/UhDYiN62gth8AyZG9",
-      "K": "https://maps.app.goo.gl/ZkRwnXUmtLqVThDT6",
-      "L": "https://maps.app.goo.gl/rPAi19gpM3eGnpGs7",
-      "M": "https://maps.app.goo.gl/tYWvWk4GiGznM7HQ7",
-      "N": "https://maps.app.goo.gl/GPC16ZNpeu4gvig86",
-      "O": "https://maps.app.goo.gl/q6id7kKqMuwvdnYFA",
-      "P": "https://maps.app.goo.gl/8g2VYWhPnHhKdXC96?g_st=ic",
-      "V": "https://maps.app.goo.gl/3k13Jx4FNwK9u5uJ9?g_st=ic",
-      "Leaders Square": "https://maps.app.goo.gl/meTyGciHWCcQJFpP9?g_st=iw"
+      "A": "https://maps.app.goo.gl/689bvTyzUZN6N8YJ7",
+      "B1": "https://maps.app.goo.gl/jsnq1kouoooWW2dS6",
+      "B2": "https://maps.app.goo.gl/mYtD9eR7Cc3p63fW6",
+      "C": "https://maps.app.goo.gl/12vxik8dYGHKibr36",
+      "D": "https://maps.app.goo.gl/PYEdTyL3V6hrZ2PL8",
+      "E": "https://maps.app.goo.gl/dAX6vmtDkabTHG6u7",
+      "F": "https://maps.app.goo.gl/DAugXA3Qq1RP6XxEA",
+      "H": "https://maps.app.goo.gl/djdMkk7kMjCF2S5u5",
+      "I": "https://maps.app.goo.gl/mA6nQ7HoPPEhWmws8",
+      "J": "https://maps.app.goo.gl/PupqzjB3XK8a218PA",
+      "K": "https://maps.app.goo.gl/ZFKAnnxQZdU7FXzM8",
+      "L": "https://maps.app.goo.gl/KF9FQ9PnweGXoyjQ6",
+      "M": "https://maps.app.goo.gl/313ZM6fN6ZjceydT9",
+      "N": "https://maps.app.goo.gl/jN9JD8hKjvyqMBoFA",
+      "DG": "https://maps.app.goo.gl/Hs62JFpxhBCa3JKh7",
+      "P": "https://maps.app.goo.gl/HLj7TSkcxmwD3g2Z7",
+      "V": "https://maps.app.goo.gl/Lq1zuDnovC252gbP8",
+      "Leaders Square": "https://maps.app.goo.gl/VwWLogWQUdrxKC1u8"
     }
     window.onload = function() {
       var storedSchool = localStorage.getItem('storedSchool');
