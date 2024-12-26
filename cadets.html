@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadet List - 62/2024 Specialist Cadet Graduation Parade</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img src="images/1-dae8d87f.png" alt="SWI Logo" id="swiLogo">
+    <h1>Cadet List</h1>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for cadets...">
+        <button onclick="searchCadets()">Search</button>
+    </div>
+
+    <div class="table-container">
+        <table id="cadetsTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Unit</th>
+                    <th>Contingent</th>
+                </tr>
+            </thead>
+            <tbody id="cadetsTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <p class="text-center">
+        <a href="index.html">Back to Home</a>
+    </p>
+
+    <script src="cadets.js"></script>
+</body>
+</html>
