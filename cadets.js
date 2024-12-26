@@ -12,7 +12,7 @@ fetch('cadet_names.csv')
        cadetsData = rows.slice(1).filter(row => row.trim()).map(row => {
     const [name, unit, contingent] = row.split(',');
     const [firstName, lastName] = name.split(' ') || ['', ''];
-    const swappedName = `${lastName} ${firstName}`;
+    const swappedName = `${lastName} ${firstName}`.trim();
     return {
         name, // Normal display format
         swappedName, // For display if needed
