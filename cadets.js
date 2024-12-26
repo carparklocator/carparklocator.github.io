@@ -12,10 +12,8 @@ fetch('cadet_names.csv')
        cadetsData = rows.slice(1).filter(row => row.trim()).map(row => {
     const [name, unit, contingent] = row.split(',');
     const [firstName, lastName] = name.split(' ') || ['', ''];
-    const swappedName = `${lastName} ${firstName}`.trim();
     return {
         name, // Normal display format
-        swappedName, // For display if needed
         unit,
         contingent,
     };
@@ -94,7 +92,6 @@ function searchCadets() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const filteredCadets = cadetsData.filter(cadet => 
         cadet.name.toLowerCase().includes(searchTerm) || // Normal format
-        cadet.swappedName.toLowerCase().includes(searchTerm) || // Last First format
         cadet.unit.toLowerCase().includes(searchTerm) || // Unit
         cadet.contingent.toString().includes(searchTerm) // Contingent
     );
