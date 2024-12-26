@@ -11,7 +11,7 @@ fetch('cadet_names.csv')
         // Skip header row and empty rows
         cadetsData = rows.slice(1).filter(row => row.trim()).map(row => {
             const [name, unit, contingent] = row.split(',');
-            const swappedName = name.split('');
+            const swappedName = name.split(' ');
             return {swappedName,name, unit, contingent };
         });
         displayCadets(cadetsData);
