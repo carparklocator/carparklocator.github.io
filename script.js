@@ -20,6 +20,32 @@ const carparkLocations = {
     "Leaders Square": "https://maps.app.goo.gl/VwWLogWQUdrxKC1u8"
 };
 
+const coordinates = {
+    "A": `1.334554814921108,103.66886177046631`,
+    "B1": `1.3337710603079413, 103.67064068036701`,
+    "B2": `1.3346744713952527, 103.67022414233425`,
+    "C": `1.3355244960217811, 103.67091778299144`,
+    "D": `1.3340264592590654, 103.67119507055219`,
+    "E": `1.3322208592580989, 103.67499932944773`,
+    "F": `1.3333049296293458, 103.67516804110451`,
+    "H": "1.3360264592602051, 103.67402779999996",
+    "I": "1.3362506703699626, 103.67102780000005",
+    "J": "1.335943729630065, 103.67205492944774",
+    "K": "1.3355819592599234, 103.67499999999998",
+    "L": "1.33594305926014, 103.67250134110454",
+    "M": "1.336278470369963, 103.67352511779096",
+    "N": "1.3363590888904837, 103.67577780000002",
+    "G": "1.334497196296674, 103.67355630010391",
+    "O": "1.335804259260044, 103.67252779999995",
+    "P": "1.333608418517624, 103.67297287055223",
+    "V": "1.3311651865200362, 103.67336289362099",
+    "Leaders Square": "1.3319616896254223, 103.67336536400578"
+};
+
+function getRouteUrl(from, to) {
+    return `https://www.google.com/maps/dir/${coordinates[from]}/${coordinates[to]}`;
+}
+
 window.onload = function() {
     const storedSchool = localStorage.getItem('storedSchool');
     if (storedSchool) {
@@ -48,11 +74,15 @@ function storeValue() {
 function retrieveValue() {
     const storedSchool = localStorage.getItem('storedSchool');
     if (storedSchool && carparkLocations.hasOwnProperty(storedSchool)) {
-        const carpark_link = carparkLocations[storedSchool];
-        const leadersSquare = carparkLocations["Leaders Square"];
         document.getElementById('displayValue').innerHTML = `
-            <p>Carpark ${storedSchool}: <a href=${carpark_link}>View Carpark Location</a></p>
-            <p><a href=${leadersSquare}>Specialist Cadet Course Graduation Parade Square Location</a></p>
+            <div class="route-buttons">
+                <button onclick="window.open('${getRouteUrl(storedSchool, "Leaders Square")}', '_blank')" class="route-btn">
+                    Route: Carpark ${storedSchool} → Leaders Square
+                </button>
+                <button onclick="window.open('${getRouteUrl("Leaders Square", storedSchool)}', '_blank')" class="route-btn">
+                    Route: Leaders Square → Carpark ${storedSchool}
+                </button>
+            </div>
         `;
         document.getElementById('displayValue').style.display = 'block';
     } else {
