@@ -60,7 +60,7 @@ window.onload = function() {
 function storeValue() {
     const selectedSchool = document.getElementById('schoolSelect').value;
     if (selectedSchool === '') {
-        alert('Please select a school!');
+        alert('Please select a carpark!');
         return;
     }
     localStorage.setItem('storedSchool', selectedSchool);
