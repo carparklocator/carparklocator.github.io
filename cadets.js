@@ -89,6 +89,7 @@ function searchCadets() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const filteredCadets = cadetsData.filter(cadet => 
         cadet.name.toLowerCase().includes(searchTerm) ||
+        cadet.swappedName.toLowerCase().Includes(searchTerm)||
         cadet.unit.toLowerCase().includes(searchTerm) ||
         cadet.contingent.toString().includes(searchTerm)
     );
