@@ -1,5 +1,5 @@
 const carparkLocations = {
-    "A": "https://maps.app.goo.gl/689bvTyzUZN6N8YJ7","https://maps.app.goo.gl/hCM5KhiDMtH93qdj7",
+    "A": "https://maps.app.goo.gl/689bvTyzUZN6N8YJ7",
     "B1": "https://maps.app.goo.gl/jsnq1kouoooWW2dS6",
     "B2": "https://maps.app.goo.gl/mYtD9eR7Cc3p63fW6",
     "C": "https://maps.app.goo.gl/12vxik8dYGHKibr36",
