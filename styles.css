@@ -347,7 +347,7 @@ button, input, tr {
 
 .nav-link a {
     display: inline-block;
-    padding: 20px 15px;
+    padding: 15px 20px;
     background: linear-gradient(135deg, #007bff, #0056b3);
     color: white;
     border-radius: 100%;
