@@ -9,11 +9,18 @@ fetch('cadet_names.csv')
         // Parse CSV
         const rows = data.split('\n');
         // Skip header row and empty rows
-        cadetsData = rows.slice(1).filter(row => row.trim()).map(row => {
-            const [name, unit, contingent] = row.split(',');
-            const swappedName = name.split(' ');
-            return {swappedName,name, unit, contingent };
-        });
+       cadetsData = rows.slice(1).filter(row => row.trim()).map(row => {
+    const [name, unit, contingent] = row.split(',');
+    const [firstName, lastName] = name.split(' ') || ['', ''];
+    const swappedName = `${lastName} ${firstName}`;
+    return {
+        name, // Normal display format
+        swappedName, // For display if needed
+        searchName: swappedName.toLowerCase(), // Searchable format
+        unit,
+        contingent,
+    };
+});
         displayCadets(cadetsData);
     })
     .catch(error => console.error('Error loading cadet data:', error));
@@ -84,11 +91,12 @@ function updatePagination(totalPages, totalItems) {
 }
 
 function searchCadets() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const filteredCadets = cadetsData.filter(cadet => 
-        cadet.name.toLowerCase().includes(searchTerm) ||
-        cadet.unit.toLowerCase().includes(searchTerm) ||
-        cadet.contingent.toString().includes(searchTerm)
+        cadet.name.toLowerCase().includes(searchTerm) || // Normal format
+        cadet.searchName.includes(searchTerm) || // Last First format
+        cadet.unit.toLowerCase().includes(searchTerm) || // Unit
+        cadet.contingent.toString().includes(searchTerm) // Contingent
     );
 
     // Reset to page 1 if current page would be empty
