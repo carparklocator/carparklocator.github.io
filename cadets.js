@@ -30,8 +30,8 @@ function displayCadets(cadets) {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${cadet.name}</td>
-            <td style="margin-left: auto; margin-right: auto;">${cadet.unit}</td>
-            <td style="margin-left: auto; margin-right: auto;>${cadet.contingent}</td>
+            <td style="text-alight:centre">${cadet.unit}</td>
+            <td>${cadet.contingent}</td>
         `;
         tbody.appendChild(row);
     });
