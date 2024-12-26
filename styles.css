@@ -221,23 +221,30 @@ button, input, tr {
 
 .text-center {
     margin: 30px 0;
+    padding: 0 20px;
+    max-width: 600px;
+    margin: 30px auto;
 }
 
 .text-center a {
-    display: inline-block;
-    padding: 12px 25px;
+    display: block;
+    width: 100%;
+    padding: 15px 40px;
     background: linear-gradient(135deg, #dc3545, #c82333);
     color: white;
-    border-radius: 25px;
+    border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    font-size: 1.2em;
 }
 
 .text-center a:hover {
     background: linear-gradient(135deg, #c82333, #bd2130);
     transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-decoration: none;
 }
 
 *, *:before, *:after {

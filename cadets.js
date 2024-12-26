@@ -89,20 +89,39 @@ function updatePagination(totalPages, totalItems) {
 }
 
 function searchCadets() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const filteredCadets = cadetsData.filter(cadet => 
-        cadet.name.toLowerCase().includes(searchTerm) || // Normal format
-        cadet.unit.toLowerCase().includes(searchTerm) || // Unit
-        cadet.contingent.toString().includes(searchTerm) // Contingent
-    );
+    const searchTerms = document.getElementById('searchInput').value.toLowerCase().split(' ').filter(term => term.length > 0);
+    
+    if (searchTerms.length === 0) {
+        displayCadets(cadetsData);
+        return;
+    }
+
+    const filteredAndRankedCadets = cadetsData
+        .map(cadet => {
+            const nameTerms = cadet.name.toLowerCase().split(' ');
+            let matchScore = 0;
+            
+            searchTerms.forEach(searchTerm => {
+                if (nameTerms.some(nameTerm => nameTerm.includes(searchTerm))) {
+                    matchScore += 1;
+                }
+            });
+
+            return {
+                ...cadet,
+                matchScore
+            };
+        })
+        .filter(cadet => cadet.matchScore > 0)
+        .sort((a, b) => b.matchScore - a.matchScore);
 
     // Reset to page 1 if current page would be empty
-    const totalPages = Math.ceil(filteredCadets.length / itemsPerPage);
+    const totalPages = Math.ceil(filteredAndRankedCadets.length / itemsPerPage);
     if (currentPage > totalPages) {
         currentPage = 1;
     }
 
-    displayCadets(filteredCadets);
+    displayCadets(filteredAndRankedCadets);
 }
 
 
