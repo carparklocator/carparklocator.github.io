@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    color: black;
+    font-size: 18px;
+    position: relative;
+    min-height: 100vh;
+    background-image: url("./images/background-transparent.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1, h2 {
+    text-align: center;
+    font-size: 2em;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+select, button {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.2em;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#saveText {
+    display: none;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+select {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding: 15px;
+    font-size: 1.2em;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: #fff;
+    appearance: none;
+}
+
+select:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+#swiLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30vh;
+    width: auto;
+}
+
+#schoolLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 20vh;
+    width: auto;
+}
