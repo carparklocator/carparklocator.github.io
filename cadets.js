@@ -16,7 +16,6 @@ fetch('cadet_names.csv')
     return {
         name, // Normal display format
         swappedName, // For display if needed
-        searchName: swappedName.toLowerCase(), // Searchable format
         unit,
         contingent,
     };
@@ -95,7 +94,7 @@ function searchCadets() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const filteredCadets = cadetsData.filter(cadet => 
         cadet.name.toLowerCase().includes(searchTerm) || // Normal format
-        cadet.searchName.includes(searchTerm) || // Last First format
+        cadet.swappedName.toLowerCase().includes(searchTerm) || // Last First format
         cadet.unit.toLowerCase().includes(searchTerm) || // Unit
         cadet.contingent.toString().includes(searchTerm) // Contingent
     );
