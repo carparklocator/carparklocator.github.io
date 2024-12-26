@@ -14,7 +14,7 @@ fetch('cadet_names.csv')
             // Split name into first and last, then interchange them
             const [firstName, lastName] = name.split(' ');
             const swappedName = `${lastName} ${firstName}`;
-            return { swappedName: swappedName,name, unit, contingent };
+            return {  swappedName,name, unit, contingent };
         });
         displayCadets(cadetsData);
     })
