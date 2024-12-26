@@ -21,6 +21,7 @@ fetch('cadet_names.csv')
         contingent,
     };
 });
+
         displayCadets(cadetsData);
     })
     .catch(error => console.error('Error loading cadet data:', error));
@@ -91,7 +92,7 @@ function updatePagination(totalPages, totalItems) {
 }
 
 function searchCadets() {
-      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const filteredCadets = cadetsData.filter(cadet => 
         cadet.name.toLowerCase().includes(searchTerm) || // Normal format
         cadet.searchName.includes(searchTerm) || // Last First format
@@ -107,6 +108,7 @@ function searchCadets() {
 
     displayCadets(filteredCadets);
 }
+
 
 // Add search on enter key press
 document.getElementById('searchInput').addEventListener('keypress', function(e) {
