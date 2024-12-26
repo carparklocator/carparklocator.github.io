@@ -32,7 +32,7 @@ function displayCadets(cadets) {
     paginatedCadets.forEach(cadet => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${cadet.name}</td>
+            <td>${cadet.name, cadet.swappedName}</td>
             <td style="text-align: center;">${cadet.unit}</td>
             <td style="text-align: center;">${cadet.contingent}</td>
         `;
