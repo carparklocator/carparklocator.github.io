@@ -468,3 +468,17 @@ button, input, tr {
 .display #info-button:hover {
     background: linear-gradient(135deg, #c82333, #bd2130);
 }
+.cadets-button {
+    padding: 5px 10px; /* Controls the button's size (smaller padding means smaller button) */
+    font-size: 14px;    /* Adjust font size */
+    background-color: #007BFF; /* Button background color */
+    color: white;       /* Text color */
+    text-decoration: none; /* Remove underline from the link */
+    border-radius: 5px;  /* Rounded corners */
+    display: inline-block; /* Make it behave like a button */
+    text-align: center; /* Align text in the center */
+}
+
+.cadets-button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+}
