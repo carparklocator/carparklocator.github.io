@@ -426,36 +426,43 @@ button, input, tr {
 .display {
     display: flex;
     align-items: center;
+    gap: 10px;
     max-width: 600px;
     margin: 0 auto;
-    border-bottom: none;
-    min-height: 60px;
+    padding: 0 20px;
 }
 
 .display .text-center {
     flex: 1;
     margin: 0;
-    border-bottom: none;
 }
 
 .display .text-center a {
-    margin: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 20px;
-    border-bottom: none;
+    display: block;
+    width: 100%;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    border-radius: 50px;
     text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.display .text-center a:hover {
+    background: linear-gradient(135deg, #c82333, #bd2130);
+    transform: translateY(-1px);
 }
 
 .display #info-button {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     padding: 0;
     border-radius: 50%;
-    background: linear-gradient(135deg, #dc3545, #c82333);
-    color: white;
+    background: transparent;
+    color: #dc3545;
     font-size: 1.2em;
     display: flex;
     align-items: center;
@@ -463,22 +470,29 @@ button, input, tr {
     margin: 0;
     font-style: italic;
     font-family: 'Times New Roman', serif;
+    flex-shrink: 0;
+    border: 3px solid #dc3545;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .display #info-button:hover {
-    background: linear-gradient(135deg, #c82333, #bd2130);
+    background: #dc3545;
+    color: white;
+    transform: translateY(-1px);
 }
+
 .cadets-button {
-    padding: 5px 10px; /* Controls the button's size (smaller padding means smaller button) */
-    font-size: 14px;    /* Adjust font size */
-    background-color: #007BFF; /* Button background color */
-    color: white;       /* Text color */
-    text-decoration: none; /* Remove underline from the link */
-    border-radius: 5px;  /* Rounded corners */
-    display: inline-block; /* Make it behave like a button */
-    text-align: center; /* Align text in the center */
+    padding: 5px 10px; 
+    font-size: 14px;    
+    background-color: #007BFF; 
+    color: white;       
+    text-decoration: none; 
+    border-radius: 5px;  
+    display: inline-block; 
+    text-align: center; 
 }
 
 .cadets-button:hover {
-    background-color: #0056b3; /* Darker shade for hover effect */
+    background-color: #0056b3; 
 }
