@@ -17,6 +17,7 @@ const carparkLocations = {
     "O": "https://maps.app.goo.gl/NDVCuhbRZ5C7c1e58",
     "P": "https://maps.app.goo.gl/HLj7TSkcxmwD3g2Z7",
     "V": "https://maps.app.goo.gl/Lq1zuDnovC252gbP8",
+    "Q": "https://maps.app.goo.gl/qDS9jqwvk5L76dWk7",
     "Leaders Square": "https://maps.app.goo.gl/VwWLogWQUdrxKC1u8"
 };
 
