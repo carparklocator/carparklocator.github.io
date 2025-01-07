@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contingent Plan - Specialist Cadet Graduation Parade</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="nav-link">
+        <a href="javascript:history.back()">
+            <img width="30" height="30" src="https://www.svgrepo.com/show/78884/back-arrow.svg" alt="Back">
+        </a>
+    </div>
+    
+    <div class="contingent-container">
+        <h1>Contingent Plan</h1>
+        <div id="planImage" class="plan-image-container"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const contingentNumber = params.get('number');
+            
+            if (contingentNumber && contingentNumber >= 1 && contingentNumber <= 12) {
+                const planImage = document.getElementById('planImage');
+                planImage.innerHTML = `
+                    <img src="images/dry_plan/${contingentNumber}.jpeg" 
+                         alt="Contingent ${contingentNumber} Plan"
+                         class="plan-image">
+                `;
+            } else {
+                document.getElementById('planImage').innerHTML = '<p>Invalid contingent number</p>';
+            }
+        });
+    </script>
+</body>
+</html>

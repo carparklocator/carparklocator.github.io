@@ -37,7 +37,11 @@ function displayCadets(cadets) {
         row.innerHTML = `
             <td>${cadet.name}</td>
             <td style="text-align: center;">${cadet.unit}</td>
-            <td style="text-align: center;">${cadet.contingent}</td>
+            <td style="text-align: center;">
+                <a href="contingent-plan.html?number=${cadet.contingent}" class="contingent-link">
+                    ${cadet.contingent}
+                </a>
+            </td>
         `;
         tbody.appendChild(row);
     });
