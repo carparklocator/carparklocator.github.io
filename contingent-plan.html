@@ -9,13 +9,23 @@
 <body>
     <div class="nav-link">
         <a href="javascript:history.back()">
-            <img width="30" height="30" src="https://www.svgrepo.com/show/78884/back-arrow.svg" alt="Back">
+            <img width="20" height="20" src="https://www.svgrepo.com/show/78884/back-arrow.svg" alt="Back">
         </a>
     </div>
     
     <div class="contingent-container">
         <h1>Contingent Plan</h1>
-        <div id="planImage" class="plan-image-container"></div>
+        <div class="plans-container">
+            <div class="plan-section">
+                <h2>Dry Plan</h2>
+                <div id="dryPlanImage" class="plan-image-container"></div>
+                <p>A = for DHG's Guest & VIPs</p>
+            </div>
+            <div class="plan-section">
+                <h2>Wet Plan</h2>
+                <div id="wetPlanImage" class="plan-image-container"></div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -24,14 +34,23 @@
             const contingentNumber = params.get('number');
             
             if (contingentNumber && contingentNumber >= 1 && contingentNumber <= 12) {
-                const planImage = document.getElementById('planImage');
-                planImage.innerHTML = `
+                const dryPlanImage = document.getElementById('dryPlanImage');
+                const wetPlanImage = document.getElementById('wetPlanImage');
+                
+                dryPlanImage.innerHTML = `
                     <img src="images/dry_plan/${contingentNumber}.jpeg" 
-                         alt="Contingent ${contingentNumber} Plan"
+                         alt="Contingent ${contingentNumber} Dry Plan"
+                         class="plan-image">
+                `;
+                
+                wetPlanImage.innerHTML = `
+                    <img src="images/wet_plan/${contingentNumber}.png" 
+                         alt="Contingent ${contingentNumber} Wet Plan"
                          class="plan-image">
                 `;
             } else {
-                document.getElementById('planImage').innerHTML = '<p>Invalid contingent number</p>';
+                document.getElementById('dryPlanImage').innerHTML = '<p>Invalid contingent number</p>';
+                document.getElementById('wetPlanImage').innerHTML = '<p>Invalid contingent number</p>';
             }
         });
     </script>
