@@ -85,6 +85,12 @@ select {
     background-repeat: no-repeat;
     background-position: right 25px top 50%;
     background-size: 12px auto;
+    color: #000;
+}
+
+select::placeholder
+{
+    color: #dc3545 !important;
 }
 
 select:focus {
@@ -822,4 +828,16 @@ select option:first-child {
     background: linear-gradient(135deg, #c82333, #bd2130);
     transform: translateY(-1px);
     box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+select option[disabled] {
+    color: #dc3545;
+}
+
+select option {
+    color: inherit;
+}
+
+select:invalid {
+    color: #dc3545;
 }
