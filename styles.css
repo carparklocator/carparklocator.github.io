@@ -86,6 +86,9 @@ select {
     background-position: right 25px top 50%;
     background-size: 12px auto;
     color: #000;
+    color: #dc3545 !important;
+    -webkit-text-fill-color: #dc3545;
+    -webkit-appearance: none;
 }
 
 select::placeholder
@@ -840,4 +843,19 @@ select option {
 
 select:invalid {
     color: #dc3545;
+}
+
+select option[disabled] {
+    color: #dc3545 !important;
+    -webkit-text-fill-color: #dc3545;
+}
+
+select:invalid {
+    color: #dc3545 !important;
+    -webkit-text-fill-color: #dc3545;
+}
+
+select option:not([disabled]) {
+    color: initial;
+    -webkit-text-fill-color: initial;
 }
