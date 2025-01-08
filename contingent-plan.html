@@ -24,8 +24,11 @@
                 </div>
             </div>
             <div class="plan-section">
-                <h2>Wet Weather Evacuation Plan</h2>
-                <div id="wetPlanImage" class="plan-image-container"></div>
+                <h2>Wet Weather Plan</h2>
+                <p>Layout for wet weather conditions for <strong>contingent <span id="contingentNumberText2"></span></strong></p>
+                <div id="wetPlanImage" class="plan-image-container">
+                    <!-- The legend will be inserted here by JavaScript -->
+                </div>
             </div>
         </div>
     </div>
@@ -53,19 +56,20 @@
 
             if (contingentNumber && contingentNumber >= 1 && contingentNumber <= 12) {
                 document.getElementById('contingentNumberText').textContent = contingentNumber;
+                document.getElementById('contingentNumberText2').textContent = contingentNumber;
                 
                 const dryPlanImage = document.getElementById('dryPlanImage');
                 const wetPlanImage = document.getElementById('wetPlanImage');
                 
-                // Add background color to the recommendation text
-                const recommendationText = document.querySelector('.plan-section p');
-                if (recommendationText) {
-                    recommendationText.style.backgroundColor = contingentColors[contingentNumber];
-                    recommendationText.style.color = '#000'; // Ensure text is readable
-                    recommendationText.style.padding = '8px 16px';
-                    recommendationText.style.borderRadius = '4px';
-                    recommendationText.style.border = '1px solid rgba(0,0,0,0.1)';
-                }
+                // Add background color to both recommendation texts
+                const recommendationTexts = document.querySelectorAll('.plan-section p');
+                recommendationTexts.forEach(text => {
+                    text.style.backgroundColor = contingentColors[contingentNumber];
+                    text.style.color = '#000';
+                    text.style.padding = '8px 16px';
+                    text.style.borderRadius = '4px';
+                    text.style.border = '1px solid rgba(0,0,0,0.1)';
+                });
                 
                 dryPlanImage.innerHTML = `
                     <div class="image-wrapper">
@@ -79,9 +83,14 @@
                 `;
                 
                 wetPlanImage.innerHTML = `
-                    <img src="images/wet_plan/${contingentNumber}.png" 
-                         alt="Contingent ${contingentNumber} Wet Plan"
-                         class="plan-image">
+                    <div class="image-wrapper">
+                        <div class="image-container">
+                            <img src="images/wet_plan/${contingentNumber}.png" 
+                                 alt="Contingent ${contingentNumber} Wet Plan"
+                                 class="plan-image">
+                            <p class="image-legend">A = for award winner's Guests & Military Guests</p>
+                        </div>
+                    </div>
                 `;
             } else {
                 document.getElementById('dryPlanImage').innerHTML = '<p>Invalid contingent number</p>';
