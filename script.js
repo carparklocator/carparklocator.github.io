@@ -67,7 +67,7 @@ function storeValue() {
     }
     localStorage.setItem('storedSchool', selectedSchool);
     // alert('School stored successfully!');
-    document.querySelector('#saveText').style.display = "block";
+    // document.querySelector('#saveText').style.display = "block";
     document.querySelector('#inputCarpark').style.display = "none";
     document.querySelector("#findCarpark").style.display = "block";
     retrieveValue();
