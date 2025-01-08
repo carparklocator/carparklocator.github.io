@@ -9,13 +9,25 @@
 <body>
     <div class="nav-link">
         <a href="javascript:history.back()">
-            <img width="30" height="30" src="https://www.svgrepo.com/show/78884/back-arrow.svg" alt="Back">
+            <img width="20" height="20" src="https://www.svgrepo.com/show/78884/back-arrow.svg" alt="Back">
         </a>
     </div>
     
     <div class="contingent-container">
         <h1>Contingent Plan</h1>
-        <div id="planImage" class="plan-image-container"></div>
+        <div class="plans-container">
+            <div class="plan-section">
+                <h2>Parade Layout</h2>
+                <p>Recommended seating layout for <strong>contingent <span id="contingentNumberText"></span></strong></p>
+                <div id="dryPlanImage" class="plan-image-container">
+                    <!-- The legend will be inserted here by JavaScript -->
+                </div>
+            </div>
+            <div class="plan-section">
+                <h2>Wet Weather Evacuation Plan</h2>
+                <div id="wetPlanImage" class="plan-image-container"></div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -23,15 +35,57 @@
             const params = new URLSearchParams(window.location.search);
             const contingentNumber = params.get('number');
             
+            // Color mapping for contingents
+            const contingentColors = {
+                '1': '#90EE90', // Light green for C1
+                '2': '#90EE90', // Light green for C2
+                '3': '#90EE90', // Light green for C3
+                '4': '#FF9999', // Light red for C4
+                '5': '#FF9999', // Light red for C5
+                '6': '#FF9999', // Light red for C6
+                '7': '#90EE90', // Light green for C7
+                '8': '#90EE90', // Light green for C8
+                '9': '#90EE90', // Light green for C9
+                '10': '#FF9999', // Light red for C10
+                '11': '#FF9999', // Light red for C11
+                '12': '#FF9999', // Light red for C12
+            };
+
             if (contingentNumber && contingentNumber >= 1 && contingentNumber <= 12) {
-                const planImage = document.getElementById('planImage');
-                planImage.innerHTML = `
-                    <img src="images/dry_plan/${contingentNumber}.jpeg" 
-                         alt="Contingent ${contingentNumber} Plan"
+                document.getElementById('contingentNumberText').textContent = contingentNumber;
+                
+                const dryPlanImage = document.getElementById('dryPlanImage');
+                const wetPlanImage = document.getElementById('wetPlanImage');
+                
+                // Add background color to the recommendation text
+                const recommendationText = document.querySelector('.plan-section p');
+                if (recommendationText) {
+                    recommendationText.style.backgroundColor = contingentColors[contingentNumber];
+                    recommendationText.style.color = '#000'; // Ensure text is readable
+                    recommendationText.style.padding = '8px 16px';
+                    recommendationText.style.borderRadius = '4px';
+                    recommendationText.style.border = '1px solid rgba(0,0,0,0.1)';
+                }
+                
+                dryPlanImage.innerHTML = `
+                    <div class="image-wrapper">
+                        <div class="image-container">
+                            <img src="images/dry_plan/${contingentNumber}.jpeg" 
+                                 alt="Contingent ${contingentNumber} Dry Plan"
+                                 class="plan-image">
+                            <p class="image-legend">A = for award winner's Guests & Military Guests</p>
+                        </div>
+                    </div>
+                `;
+                
+                wetPlanImage.innerHTML = `
+                    <img src="images/wet_plan/${contingentNumber}.png" 
+                         alt="Contingent ${contingentNumber} Wet Plan"
                          class="plan-image">
                 `;
             } else {
-                document.getElementById('planImage').innerHTML = '<p>Invalid contingent number</p>';
+                document.getElementById('dryPlanImage').innerHTML = '<p>Invalid contingent number</p>';
+                document.getElementById('wetPlanImage').innerHTML = '<p>Invalid contingent number</p>';
             }
         });
     </script>
