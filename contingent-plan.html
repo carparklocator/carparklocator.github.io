@@ -17,20 +17,18 @@
         <h1>Contingent Plan</h1>
         <div class="plans-container">
             <div class="plan-section">
-                <h2>Parade Layout</h2>
-                <p>Recommended seating layout for <strong>contingent <span id="contingentNumberText"></span></strong></p>
-                <div id="dryPlanImage" class="plan-image-container">
-                    <!-- The legend will be inserted here by JavaScript -->
-                </div>
+                <h2>Recommended Seating Sector: <strong>C<span id="contingentNumberText"></span></strong></h2>
+                <div id="dryPlanImage" class="plan-image-container"></div>
+                <p>A = for award winner's Guests & Military Guests</p>
             </div>
             <div class="plan-section">
-                <h2>Wet Weather Plan</h2>
-                <p>Layout for wet weather conditions for <strong>contingent <span id="contingentNumberText2"></span></strong></p>
-                <div id="wetPlanImage" class="plan-image-container">
-                    <!-- The legend will be inserted here by JavaScript -->
-                </div>
+                <h2>Recommended Wet Weather Seating Sector: <strong>C<span id="wetContingentNumberText"></span></strong></h2>
+                <div id="wetPlanImage" class="plan-image-container"></div>
+                <p>A = for award winner's Guests & Military Guests</p>
             </div>
         </div>
+
+        <p style="font-style: italic; color: #666666; margin-bottom: 4rem;">The recommendation of seating sector is to facilitate the movement during affixing of 3SG rank</p>
     </div>
 
     <script>
@@ -39,37 +37,37 @@
             const contingentNumber = params.get('number');
             
             // Color mapping for contingents
-            const contingentColors = {
-                '1': '#90EE90', // Light green for C1
-                '2': '#90EE90', // Light green for C2
-                '3': '#90EE90', // Light green for C3
-                '4': '#90EE90', // Light green for C4
-                '5': '#90EE90', // Light green for C5
-                '6': '#90EE90', // Light green for C6
-                '7': '#90EE90', // Light green for C7
-                '8': '#90EE90', // Light green for C8
-                '9': '#90EE90', // Light green for C9
-                '10': '#90EE90', // Light green for C10
-                '11': '#90EE90', // Light green for C11
-                '12': '#90EE90', // Light green for C12
-            };
+            // const contingentColors = {
+            //     '1': '#90EE90', // Light green for C1
+            //     '2': '#90EE90', // Light green for C2
+            //     '3': '#90EE90', // Light green for C3
+            //     '4': '#90EE90', // Light green for C4
+            //     '5': '#90EE90', // Light green for C5
+            //     '6': '#90EE90', // Light green for C6
+            //     '7': '#90EE90', // Light green for C7
+            //     '8': '#90EE90', // Light green for C8
+            //     '9': '#90EE90', // Light green for C9
+            //     '10': '#90EE90', // Light green for C10
+            //     '11': '#90EE90', // Light green for C11
+            //     '12': '#90EE90', // Light green for C12
+            // };
 
             if (contingentNumber && contingentNumber >= 1 && contingentNumber <= 12) {
                 document.getElementById('contingentNumberText').textContent = contingentNumber;
-                document.getElementById('contingentNumberText2').textContent = contingentNumber;
+                document.getElementById('wetContingentNumberText').textContent = contingentNumber;
                 
                 const dryPlanImage = document.getElementById('dryPlanImage');
                 const wetPlanImage = document.getElementById('wetPlanImage');
                 
                 // Add background color to both recommendation texts
-                const recommendationTexts = document.querySelectorAll('.plan-section p');
-                recommendationTexts.forEach(text => {
-                    text.style.backgroundColor = contingentColors[contingentNumber];
-                    text.style.color = '#000';
-                    text.style.padding = '8px 16px';
-                    text.style.borderRadius = '4px';
-                    text.style.border = '1px solid rgba(0,0,0,0.1)';
-                });
+                // const recommendationTexts = document.querySelectorAll('.plan-section p');
+                // recommendationTexts.forEach(text => {
+                //     text.style.backgroundColor = contingentColors[contingentNumber];
+                //     text.style.color = '#000';
+                //     text.style.padding = '8px 16px';
+                //     text.style.borderRadius = '4px';
+                //     text.style.border = '1px solid rgba(0,0,0,0.1)';
+                // });
                 
                 dryPlanImage.innerHTML = `
                     <div class="image-wrapper">
@@ -77,7 +75,6 @@
                             <img src="images/dry_plan/${contingentNumber}.jpeg" 
                                  alt="Contingent ${contingentNumber} Dry Plan"
                                  class="plan-image">
-                            <p class="image-legend">A = for award winner's Guests & Military Guests</p>
                         </div>
                     </div>
                 `;
@@ -88,7 +85,6 @@
                             <img src="images/wet_plan/${contingentNumber}.jpeg" 
                                  alt="Contingent ${contingentNumber} Wet Plan"
                                  class="plan-image">
-                            <p class="image-legend">A = for award winner's Guests & Military Guests</p>
                         </div>
                     </div>
                 `;
