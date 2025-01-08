@@ -15,9 +15,9 @@
      
     <h1> Welcome to Specialist Cadet Graduation Parade</h1>
     <div id="inputCarpark">
-        <p id="submitText"> select your current carpark location</p>
-        <select id="schoolSelect">
-            <option value="" disabled selected>Please select</option>
+        <!-- <p id="submitText"> select your current carpark location</p> -->
+        <select id="schoolSelect" onchange="storeValue()">
+            <option value="" disabled selected>Select carpark location</option>
             <option value="A">Carpark A</option>
             <option value="B1">Carpark B1</option>
             <option value="B2">Carpark B2</option>
@@ -38,7 +38,7 @@
             <option value="V">Carpark V</option>
             <option value="Q">Carpark Q</option>
         </select>
-        <button onclick="storeValue()">Submit</button>
+        <!-- <button onclick="storeValue()">Submit</button> -->
         
         <div class="display">
             <div class="text-center">
