@@ -751,6 +751,21 @@ button, input, tr {
     margin: 0;
     width: 100%;
     max-width: 540px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: none;
+}
+
+/* Remove the default arrow in IE */
+.select-container select::-ms-expand {
+    display: none;
+}
+
+/* For iOS devices specifically */
+.select-container select {
+    background-color: transparent;
+    border-radius: 0;
 }
 
 #info-button:first-of-type {
