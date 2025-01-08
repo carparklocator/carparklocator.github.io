@@ -9,23 +9,24 @@
 <body>
     <div class="nav-link-2">
         <a href="javascript:history.back()">
-            <img width="15" height="15" src="https://www.svgrepo.com/show/78884/back-arrow.svg" alt="Back">
+            <img width="20" height="20" src="https://www.svgrepo.com/show/346526/arrow-go-back.svg" alt="Back" style="filter: brightness(0) invert(1);">
         </a>
     </div>
     
     <div class="contingent-container">
         <div class="plans-container">
             <div class="plan-section">
-                <h2 style="margin-top: 4rem;">Recommended Seating Sector: <strong>C<span id="contingentNumberText"></span></strong></h2>
-                <p style="font-style: italic; color: #666666;">The recommended seating sector is to facilitate movement during the affixing of 3SG rank.</p>
+                <h2 style="margin-top: 4rem;">Go to Seating Sector <strong>C<span id="contingentNumberText"></span></strong></h2>
+                <!-- <p style="font-style: italic; color: #666666;">Move to your seating sector to be ready for the rank presentation ceremony.</p> -->
 
                 <div id="dryPlanImage" class="plan-image-container"></div>
                 <p class="plan-label">A = for Award Winner's Guests & Military Guests</p>
             </div>
 
             <div class="plan-section">
-                <h2>Recommended Wet Weather Seating Sector: <strong>C<span id="wetContingentNumberText"></span></strong></h2>
-                <p style="font-style: italic; color: #666666;">The recommended seating sector is to facilitate movement during the affixing of 3SG rank.</p>
+                <!-- <h2>Wet Weather Seating Sector: <strong>C<span id="wetContingentNumberText"></span></strong></h2> -->
+                 <h2>Wet Weather Plan</h2>
+                <p style="font-style: italic; color: #666666; margin: 0px; margin-bottom: 10px; padding: 0px;">During wet weather, cadets will proceed to your designated seating sector.</p>
                 <div id="wetPlanImage" class="plan-image-container"></div>
                 <p class="plan-label">A = for Award Winner's Guests & Military Guests</p>
             </div>
@@ -39,7 +40,7 @@
 
             if (contingentNumber && contingentNumber >= 1 && contingentNumber <= 12) {
                 document.getElementById('contingentNumberText').textContent = contingentNumber;
-                document.getElementById('wetContingentNumberText').textContent = contingentNumber;
+                // document.getElementById('wetContingentNumberText').textContent = contingentNumber;
                 
                 const dryPlanImage = document.getElementById('dryPlanImage');
                 const wetPlanImage = document.getElementById('wetPlanImage');

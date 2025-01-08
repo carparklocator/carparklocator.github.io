@@ -35,7 +35,7 @@ function displayCadets(cadets) {
         <th>
             <div class="contingent-header">
                 Contingent
-                <button class="info-icon" onclick="alert('Click the link to see recommended seating')">i</button>
+                <button class="info-icon" onclick="alert('Click the link to see your seating sector')">i</button>
             </div>
         </th>
     `;
