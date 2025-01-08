@@ -16,33 +16,37 @@
     <h1> Welcome to Specialist Cadet Graduation Parade</h1>
     <div id="inputCarpark">
         <!-- <p id="submitText"> select your current carpark location</p> -->
-        <select id="schoolSelect" onchange="storeValue()">
-            <option value="" disabled selected>Select carpark location</option>
-            <option value="A">Carpark A</option>
-            <option value="B1">Carpark B1</option>
-            <option value="B2">Carpark B2</option>
-            <option value="C">Carpark C</option>
-            <option value="D">Carpark D</option>
-            <option value="G">Carpark G</option>
-            <option value="E">Carpark E</option>
-            <option value="F">Carpark F</option>
-            <option value="H">Carpark H</option>
-            <option value="I">Carpark I</option>
-            <option value="J">Carpark J</option>
-            <option value="K">Carpark K</option>
-            <option value="L">Carpark L</option>
-            <option value="M">Carpark M</option>
-            <option value="N">Carpark N</option>
-            <option value="O">Carpark O</option>
-            <option value="P">Carpark P</option>
-            <option value="V">Carpark V</option>
-            <option value="Q">Carpark Q</option>
-        </select>
-        <!-- <button onclick="storeValue()">Submit</button> -->
+        <div class="display">
+            <div class="select-container">
+                <select id="schoolSelect" onchange="storeValue()">
+                    <option id="defaultOption" value="" disabled selected>Select carpark location</option>
+                    <option value="A">Carpark A</option>
+                    <option value="B1">Carpark B1</option>
+                    <option value="B2">Carpark B2</option>
+                    <option value="C">Carpark C</option>
+                    <option value="D">Carpark D</option>
+                    <option value="G">Carpark G</option>
+                    <option value="E">Carpark E</option>
+                    <option value="F">Carpark F</option>
+                    <option value="H">Carpark H</option>
+                    <option value="I">Carpark I</option>
+                    <option value="J">Carpark J</option>
+                    <option value="K">Carpark K</option>
+                    <option value="L">Carpark L</option>
+                    <option value="M">Carpark M</option>
+                    <option value="N">Carpark N</option>
+                    <option value="O">Carpark O</option>
+                    <option value="P">Carpark P</option>
+                    <option value="V">Carpark V</option>
+                    <option value="Q">Carpark Q</option>
+                </select>
+            </div>
+            <button id="info-button" onclick="alert(`Select your current carpark location to get directions to the parade location`)">i</button>
+        </div>
         
         <div class="display">
             <div class="text-center">
-                <a href="cadets.html">Warrior Contingent</a>
+                <a href="cadets.html" id="warriorContingentButton">Warrior Contingent</a>
             </div>
             <button id="info-button" onclick="alert(`Search for your graduand's unit, contingent, and recommended seating sector`)">i</button>
         </div>
@@ -52,7 +56,7 @@
     <div id="findCarpark">
         <div id="displayValue"></div>
         <!-- <button id="reset" onclick="reset()">Reset</button> -->
-        <div class="nav-link-2" onclick="reset()">
+        <div class="nav-link-2" onclick="reset()" id="red-back-button">
             <a href="/">
                 <img width="20" height="20" src="https://www.svgrepo.com/show/346526/arrow-go-back.svg" alt="Back" style="filter: brightness(0) invert(1);">
             </a>

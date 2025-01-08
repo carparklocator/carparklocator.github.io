@@ -81,7 +81,7 @@ select {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23dc3545%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
     background-position: right 25px top 50%;
     background-size: 12px auto;
@@ -89,8 +89,8 @@ select {
 
 select:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 3px 8px rgba(0,123,255,0.2);
+    border-color: #dc3545;
+    box-shadow: 0 3px 8px rgba(220, 53, 69, 0.2);
 }
 
 #swiLogo {
@@ -224,17 +224,16 @@ button, input, tr {
 }
 
 .text-center {
-    margin: 30px 0;
-    padding: 0 20px;
-    max-width: 600px;
-    margin: 30px auto;
+    flex: 1;
+    margin: 0;
+    width: 100%;
 }
 
 .text-center a {
     display: block;
     width: 100%;
     padding: 15px 40px;
-    background: linear-gradient(135deg, #dc3545, #c82333);
+    background: linear-gradient(135deg, #007bff, #0056b3);
     color: white;
     border-radius: 50px;
     text-decoration: none;
@@ -242,10 +241,11 @@ button, input, tr {
     box-shadow: 0 3px 6px rgba(0,0,0,0.1);
     text-align: center;
     font-size: 1.2em;
+    max-width: 540px;
 }
 
 .text-center a:hover {
-    background: linear-gradient(135deg, #c82333, #bd2130);
+    background: linear-gradient(135deg, #0056b3, #004094);
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     text-decoration: none;
@@ -310,26 +310,6 @@ button, input, tr {
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
-/* #reset {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-size: 1.2em;
-    background: linear-gradient(135deg, #dc3545, #c82333);
-    color: white;
-    border: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-#reset:hover {
-    background: linear-gradient(135deg, #c82333, #bd2130);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-} */
 
 @media (max-width: 768px) {
     #inputCarpark {
@@ -449,10 +429,10 @@ button, input, tr {
 .display {
     display: flex;
     align-items: center;
-    /* gap: 5px; */
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 30px;
     padding: 0 20px;
+    gap: 12px;
 }
 
 .display .text-center {
@@ -497,6 +477,7 @@ button, input, tr {
     border: 3px solid #dc3545;
     cursor: pointer;
     transition: all 0.3s ease;
+    min-width: 50px;
 }
 
 .display #info-button:hover {
@@ -749,4 +730,96 @@ button, input, tr {
         width: 5px;
         height: 5px;
     }
+}
+
+.select-container {
+    flex: 1;
+    margin: 0;
+    width: 100%;
+}
+
+.select-container select {
+    margin: 0;
+    width: 100%;
+    max-width: 540px;
+}
+
+#info-button:first-of-type {
+    border: 3px solid #dc3545;
+    color: #dc3545;
+}
+
+#info-button:first-of-type:hover {
+    background: #fae3e5;
+}
+
+#info-button:last-of-type {
+    border: 3px solid #007bff;
+    color: #007bff;
+}
+
+#info-button:last-of-type:hover {
+    background: #cedff1;
+}
+
+/* Make select placeholder text red */
+select option:first-child {
+    color: #dc3545;
+}
+
+/* Make Warrior Contingent button blue */
+.text-center a {
+    /* ... existing styles ... */
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.text-center a:hover {
+    background: linear-gradient(135deg, #0056b3, #004094);
+}
+
+/* Color code the info buttons */
+.display:first-child #info-button {
+    border: 3px solid #dc3545;
+    color: #dc3545;
+}
+
+.display:first-child #info-button:hover {
+    background: #fae3e5;
+}
+
+.display:last-child #info-button {
+    border: 3px solid #007bff;
+    color: #007bff;
+}
+
+.display:last-child #info-button:hover {
+    background: #cedff1;
+}
+
+#warriorContingentButton
+{
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    text-decoration: none;
+    border: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease
+}
+
+#defaultOption {
+    color: #dc3545;
+}
+
+#red-back-button a {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+#red-back-button a:hover {
+    background: linear-gradient(135deg, #c82333, #bd2130);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
