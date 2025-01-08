@@ -16,16 +16,15 @@
     <div class="contingent-container">
         <div class="plans-container">
             <div class="plan-section">
-                <h2 style="margin-top: 4rem;">Go to Seating Sector <strong>C<span id="contingentNumberText"></span></strong></h2>
-                <!-- <p style="font-style: italic; color: #666666;">Move to your seating sector to be ready for the rank presentation ceremony.</p> -->
-
-                <div id="dryPlanImage" class="plan-image-container"></div>
+                <h2 style="margin-top: 4rem;">Your Seating Sector: <strong>C<span id="contingentNumberText"></span></strong></h2>
+                <div id="dryPlanImage" class="plan-image-container">
+                    
+                </div>
                 <p class="plan-label">A = for Award Winner's Guests & Military Guests</p>
             </div>
 
             <div class="plan-section">
-                <!-- <h2>Wet Weather Seating Sector: <strong>C<span id="wetContingentNumberText"></span></strong></h2> -->
-                 <h2>Wet Weather Plan</h2>
+                 <h2>Wet Weather Plan for Seating Sector: <strong>C<span id="contingentNumberText2"></span></strong></h2>
                 <p style="font-style: italic; color: #666666; margin: 0px; margin-bottom: 10px; padding: 0px;">During wet weather, cadets will proceed to your designated seating sector.</p>
                 <div id="wetPlanImage" class="plan-image-container"></div>
                 <p class="plan-label">A = for Award Winner's Guests & Military Guests</p>
@@ -40,7 +39,7 @@
 
             if (contingentNumber && contingentNumber >= 1 && contingentNumber <= 12) {
                 document.getElementById('contingentNumberText').textContent = contingentNumber;
-                // document.getElementById('wetContingentNumberText').textContent = contingentNumber;
+                document.getElementById('contingentNumberText2').textContent = contingentNumber;
                 
                 const dryPlanImage = document.getElementById('dryPlanImage');
                 const wetPlanImage = document.getElementById('wetPlanImage');
@@ -51,6 +50,12 @@
                             <img src="images/dry_plan/${contingentNumber}.jpeg" 
                                  alt="Contingent ${contingentNumber} Dry Plan"
                                  class="plan-image">
+                            
+                            <div class="plan-key">
+                                <p>Cadets</p>
+                                <p>Parents & Loved Ones</p>
+                                <p>Award Winner's Guests</p>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -61,6 +66,12 @@
                             <img src="images/wet_plan/${contingentNumber}.jpeg" 
                                  alt="Contingent ${contingentNumber} Wet Plan"
                                  class="plan-image">
+
+                            <div class="plan-key">
+                                <p>Cadets</p>
+                                <p>Parents & Loved Ones</p>
+                                <p>Award Winner's Guests</p>
+                            </div>
                         </div>
                     </div>
                 `;

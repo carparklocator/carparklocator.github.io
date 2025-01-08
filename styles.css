@@ -541,11 +541,6 @@ button, input, tr {
     margin-bottom: 3rem;
 }
 
-.plan-image-container {
-    margin: 0;
-    height: 100vh;
-}
-
 .plan-image {
     width: 100vw;
     height: 100vh;
@@ -572,7 +567,7 @@ button, input, tr {
 }
 
 .plan-section h2 {
-    font-size: 3rem;
+    font-size: 2.4rem;
 }
 
 /* Underline the h2 */
@@ -585,10 +580,9 @@ button, input, tr {
     /* margin-top: 0.5rem; */
 }
 
-
 .plan-image-container {
     width: 100%;
-    height: auto;
+    position: relative;
 }
 
 .plan-image {
@@ -599,9 +593,60 @@ button, input, tr {
     display: block;
 }
 
+.plan-key {
+    text-align: left;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    padding: 6px 8px;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    font-size: 0.55rem;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: auto;
+    min-width: 160px;
+    max-width: calc(100% - 10px);
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.plan-key p {
+    text-align: left;
+    margin: 1px 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 1px;
+    white-space: nowrap;
+    font-size: 1em;
+}
+
+.plan-key p::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
+    flex-shrink: 0;
+}
+
+.plan-key p:nth-child(1)::before {
+    background-color: #007bff; /* Blue for Cadets */
+}
+
+.plan-key p:nth-child(2)::before {
+    background-color: #28a745; /* Green for Parents */
+}
+
+.plan-key p:nth-child(3)::before {
+    background-color: #ffc107; /* Yellow for Guests */
+}
+
 .plan-label {
     color: #666;
-    font-size: 0.9em;
+    font-size: 0.7em;
     font-style: italic;
     background-color: white;
     padding: 8px 16px;
@@ -675,4 +720,32 @@ button, input, tr {
 .info-icon:hover 
 {
     background: #cedff1;
+}
+
+@media (min-width: 768px) {
+    .plan-key {
+        font-size: 0.65rem;
+        padding: 8px 10px;
+        top: 32px;
+        left: 32px;
+    }
+
+    .plan-key p::before {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .plan-key {
+        font-size: 0.5rem;
+        padding: 4px 6px;
+        top: 32px;
+        left: 32px;
+    }
+
+    .plan-key p::before {
+        width: 5px;
+        height: 5px;
+    }
 }
