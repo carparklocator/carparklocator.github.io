@@ -27,6 +27,19 @@ function displayCadets(cadets) {
     const tbody = document.getElementById('cadetsTableBody');
     tbody.innerHTML = '';
     
+    // Update the table header first
+    const thead = document.querySelector('#cadetsTable thead tr');
+    thead.innerHTML = `
+        <th>Name</th>
+        <th>Unit</th>
+        <th>
+            <div class="contingent-header">
+                Contingent
+                <button class="info-icon" onclick="alert('Click the link to see recommended seating')">i</button>
+            </div>
+        </th>
+    `;
+    
     const totalPages = Math.ceil(cadets.length / itemsPerPage);
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
